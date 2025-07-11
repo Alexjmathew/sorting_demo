@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorting Algorithms Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .container { margin-top: 30px; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 5px; }
+        .error { color: red; }
+        .time { font-weight: bold; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <h1>Sorting Algorithms Comparison</h1>
+    <form method="POST">
+        <label for="numbers">Enter numbers (comma separated):</label><br>
+        <input type="text" id="numbers" name="numbers" size="50" 
+               placeholder="e.g., 5,3,8,1,2,9,4,7,6" required>
+        <button type="submit">Sort</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if original %}
+    <div class="container">
+        <h2>Results</h2>
+        <p><strong>Original array:</strong> {{ original }}</p>
+        
+        <div class="result">
+            <h3>Bubble Sort</h3>
+            <p><strong>Sorted array:</strong> {{ bubble_sorted }}</p>
+            <p class="time">Execution time: {{ bubble_time }} seconds</p>
+        </div>
+
+        <div class="result">
+            <h3>Quick Sort</h3>
+            <p><strong>Sorted array:</strong> {{ quick_sorted }}</p>
+            <p class="time">Execution time: {{ quick_time }} seconds</p>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
